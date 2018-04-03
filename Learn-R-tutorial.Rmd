@@ -27,11 +27,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ---
 R is a Statistical programming language, however it has many diverse applications beyond statistical analysis alone. Here are some most common examples:
 
-* Data sorting, cleaning, organizing, tidying - also known as [WRANGLING]()
+* Data sorting, cleaning, organizing, tidying, transforming - part of [data WRANGLING]()
 * [Exploratory data analysis]() - 
 * [Machine learning]()
-* Interactive web applications - they are called [RShiny apps]() and allow you to build plots that users can modify interactively. Fantastic tool for sharing/communicating data analysis 
-* Reporting with [RMarkdown]()
+* [Network analysis]()
+* [Time-series analysis]()
+* Basic Statistics
+* Statistical models and tests
+* Bioinformatics, e.g. bioconductor package]()
+* Interactive web applications - they are called [RShiny apps]() and allow you to build plots that users can explore interactively. Fantastic tool for sharing/communicating your data analysis 
+* And another great tool for sharing analysis is [RMarkdown](), in RMarkdown documents you can embedd R code and
 
 [RStudio]() is a powerful and productive user interface for R. 
 
