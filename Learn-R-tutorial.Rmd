@@ -1,0 +1,78 @@
+---
+title: "Learn-R-tutorial"
+author: "R-Ladies-Vancouver"
+date: "April 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Overview of the workshop
+
+---
+
+1.RStudio orientation & good practices for data analysis   
+2.Basics of coding in R  
+3.Working with functions and packages  
+4.Loading and inspecting a CRIME in Vancouver dataset  
+5.Basics of DATA WRANGLING with the DPLYR package  
+6.Basics of DATA PLOTTING with the GGPLOT2 package  
+
+
+## What is R and RStudio?
+
+---
+R is a Statistical programming language, however it has many diverse applications beyond statistical analysis alone. Here are some most common examples:
+
+* Data sorting, cleaning, organizing, tidying - also known as [WRANGLING]()
+* [Exploratory data analysis]() - 
+* [Machine learning]()
+* Interactive web applications - they are called [RShiny apps]() and allow you to build plots that users can modify interactively. Fantastic tool for sharing/communicating data analysis 
+* Reporting with [RMarkdown]()
+
+[RStudio]() is a powerful and productive user interface for R. 
+
+Both are free and open-source. 
+
+Why learn R?:
+
+* R community (folks who maintain it, develop packages and generally code) is extremly welcoming and supportive, if you're a beginner...
+* powerful tool with a diverse application in data science
+* find out what companies use R [here]
+
+
+## Data analysis workflow
+
+---
+
+As adapted from R for Data Science by Hadley Wickham, the maker of the many popular R packages such as dplyr and ggplot2 packages we will be working with today.
+
+insert image here
+
+For the purpose of todays workshop we will be working with a "clean" dataset on crimes in Vancouver. This is an open source dataset that can be obtained from:
+
+
+## RStudio orientation & best practices for data analysis
+
+---
+
+When you launch RStudio you will be 
+
+
+## Basics of R coding
+
+---
+
+## Loading and inspecting the Crime.csv dataset
+
+---
+
+## Data wrangling with the DPLYR package
+
+---
+
+
+## Data plotting with the GGPLOT2 package
