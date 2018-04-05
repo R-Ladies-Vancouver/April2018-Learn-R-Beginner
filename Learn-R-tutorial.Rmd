@@ -34,7 +34,7 @@ This is a hands-on 3 hour tutorial for participants with no prior knowledge of p
 1. RStudio orientation & good practices for data analysis   
 2. Basics of coding in R  
 3. Working with functions and packages  
-4. Loading and inspecting a CRIME in Vancouver dataset  
+4. Loading and inspecting a crime in Vancouver dataset / titanic 
 5. Basics of data wrangling with the `dplyr` package  
 6. Basics of data plotting with the `ggplot2` package  
 
@@ -75,7 +75,7 @@ For the purpose of todays workshop we will be working with a "clean" dataset on 
 
 This is what you should see when you launch RStudio:
 
-* the interactive console (left) with a version of R everytime you start a new session
+* the interactive console (left), a version of R you are working with will be printed there every time you start a new session
 * Environment/History (top right)
 * Files/Plots/Packages/Help/Viewer
 
@@ -118,6 +118,7 @@ A recommendation on how to organize your R project from [Good Enough Practices f
 1. Create an Rproject called “R-beginner-workshop". Click **File**>**New Project**>**New directory**>**Empty project** 
 2. Create a folder called Data
 3. Put the Crime.csv into folder Data
+
 ---
 
 ## Basics of R coding
@@ -125,11 +126,13 @@ A recommendation on how to organize your R project from [Good Enough Practices f
 
 You can clear your console with a command `ctr + L`
 
-We can use R to do simple arithmetic with these operators: 
+We can use R to do simple arithmetic: 
 
 * division `/`
 * multiple `*`
 * addition `+`
+* exponent `^`
+* subtraction `-`
 
 For instance, type the following in your console:
 
@@ -137,17 +140,144 @@ For instance, type the following in your console:
 
 5+5
 
+10/5
+
 ```
 
-The answer to this is printed below the command, preceded by [1]. Right now, none of our work exists anywhere besides the console.
+The answer to this is printed below the command, preceded by [1]. Right now, none of our work exists anywhere besides the console. 
+
+To create a script:
+ 1. Click File
+ 2. Click New File 
+ 3. Click R script
+ 4. Give your script a name
+
+> Challenge
+
+Create a script called “R-beginner-scripts” in your current project and put it in `scr` folder
+ 
+ 
+We can annotate a script with comments using the `#`. If you precede anything with this sign, R will ignore it.  For instance
+
+```{r }
+
+# to do a addition in R, we do the following
+5+5
+
+```
+
+To store results or data we need to create an object also known as a variable, using assignment operator `<-`
+
+```{r }
+
+# now I tell R to store my height
+
+height_cm <- 172
+
+```
+
+Now, position your cursor at the line of the above command and press `CNTR + ENTER`. In the environment (top right) you should see a variable heigh_cm and it's value appear
+
+When, we are working with a dataset, we won't be able to see the values in the environment. We can check what is stored in the variable "height_cm" by simply typing it in the new line of our scrip and running `CNTR + ENTER`.
+
+```{r }
+
+# what is stored in height_cm?
+
+height_cm
+
+```
+
+Note, R is case sensitive. If we were to type `Height_cm` we would get an error. Try it!
+
+```{r }
+
+# what is stored in height_cm?
+
+# Height_cm
+
+```
+
+Say you wanted to convert your heigh to inches.
+
+```{r }
+
+# what is my height in inches?
+
+height_cm * 0.39
+
+# oh wait, I want to store this value!
+
+height_inches <- height_cm * 0.39
+
+# what is it again?
+
+height_inches
+
+```
+
+If we wanted to clear the environment of the variables we have 2 options:
+
+* rm(list = ls())
+* start a new R session - essentially a refresh button. In RStudio click "Session" > "Restart R"
+
+> Challenge
+
+1. Create a variable called `mass_kg` with a value of 50
+2. Convert `mass_kg` to mass in pounds (multiply by 2.2) and store the answer in `mass_lbs`
 
 
+## What are functions and packages?
+
+Functions:
+
+* fundamental building blocks of R
+* a list of base R functions [explore here]()
+
+```{r }
+
+log(height_cm)
+
+exp(height_cm)
+
+
+```
+
+
+An example of working with more than one number [work on this]
+
+```{r }
+
+heights_cm <- c(172, 143, 152, 180)
+
+mean(heights_cm)
+
+sd(heights_cm)
+
+length(heights_cm)
+
+```
+
+Packages:
+
+-> Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and (often) sample data. (From: http://r-pkgs.had.co.nz)
+
+-> Packages need to be **installed** once only, therefore we don't put these commands into the script. To install a package we use a command `install.packages("package-name")`. Today, we will be working with two packages called the `dplyr` for data wrangling and `ggplot2`for data visualization
+
+-> Packages need to be **loaded** everytime we start a new R session. Typically this command goes on top of a script. To do so we use `library("package-name")` command
 
 
 > Challenge
 
-[4. Create a script called “R-beginner-scripts”.Click on **File**>**New File**>**R script**]
-[5. Edit the Readme file, e.g. "Scripts and data from R beginner workshop" [maybe unnecessary?]]
+Install the `dplyr` and `ggplot2` packages.
+
+Type the following into console. 
+
+```{r}
+# install.packages("ggplot2")
+# install.packages("dplyr")
+```
+
 
 ## Loading and inspecting the Crime.csv dataset
 
