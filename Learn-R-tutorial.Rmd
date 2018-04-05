@@ -31,17 +31,16 @@ This is a hands-on 3 hour tutorial for participants with no prior knowledge of p
 
 **Topics covered**
 
-1.RStudio orientation & good practices for data analysis   
-2.Basics of coding in R  
-3.Working with functions and packages  
-4.Loading and inspecting a CRIME in Vancouver dataset  
-5.Basics of DATA WRANGLING with the DPLYR package  
-6.Basics of DATA PLOTTING with the GGPLOT2 package  
-
-
-## What is R and RStudio?
+1. RStudio orientation & good practices for data analysis   
+2. Basics of coding in R  
+3. Working with functions and packages  
+4. Loading and inspecting a CRIME in Vancouver dataset  
+5. Basics of data wrangling with the `dplyr` package  
+6. Basics of data plotting with the `ggplot2` package  
 
 ---
+
+## What is R and RStudio?
 
 What is R and why learn it? 
 
@@ -59,10 +58,10 @@ What is RStudio?
 * powerful and productive user interface for R
 * free and open-source. 
 
+---
 
 ## Data analysis workflow
 
----
 
 As adapted from R for Data Science by Hadley Wickham, the maker of the many popular R packages such as dplyr and ggplot2 packages we will be working with today.
 
@@ -70,10 +69,9 @@ As adapted from R for Data Science by Hadley Wickham, the maker of the many popu
 
 For the purpose of todays workshop we will be working with a "clean" dataset on crimes in Vancouver. This is an open source dataset that can be obtained from:
 
+---
 
 ## RStudio orientation & best practices for data analysis
-
----
 
 This is what you should see when you launch RStudio:
 
@@ -83,9 +81,9 @@ This is what you should see when you launch RStudio:
 
 ![](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Img/RStudio-launch.jpg)
 
-## Setting yourself up for reproducible R work
-
 ---
+
+## Setting yourself up for reproducible R work
 
 [Maybe this is not suitable for a beginner workshop?]
 
@@ -120,21 +118,31 @@ A recommendation on how to organize your R project from [Good Enough Practices f
 1. Create an Rproject called “R-beginner-workshop". Click **File**>**New Project**>**New directory**>**Empty project** 
 2. Create a folder called Data
 3. Put the Crime.csv into folder Data
-
+---
 
 ## Basics of R coding
 
----
 
 You can clear your console with a command `ctr + L`
 
-We can use R to do simple calculations,type the following in your console
+We can use R to do simple arithmetic with these operators: 
+
+* division `/`
+* multiple `*`
+* addition `+`
+
+For instance, type the following in your console:
 
 ```{r }
 
 5+5
 
 ```
+
+The answer to this is printed below the command, preceded by [1]. Right now, none of our work exists anywhere besides the console.
+
+
+
 
 > Challenge
 
