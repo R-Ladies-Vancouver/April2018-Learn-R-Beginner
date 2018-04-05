@@ -45,7 +45,7 @@ What is R and why learn it?
 
 * one of the leading languages in statistics and data science
 * open-source and free
-* powerfull for [data wrangling]() and [visualization]()
+* powerfull for data wrangling and visualization
 * large library of tools (packages and functions) for diverse applications (e.g. [Bioconductor for genomic research](https://www.bioconductor.org/), [rOpenGov for social sciences](http://ropengov.github.io/about/))
 * increasing number of organizations use R, find out more in this [StackOverflow post](https://stackoverflow.blog/2017/10/10/impressive-growth-r/)
 * with a programming language such as R you can document the process of your data analysis, making it easier for you or another user to reproduce. This is challenging using tools such as an excell spreadsheet, where calculations are hidden in individual cells.
@@ -64,7 +64,7 @@ What is RStudio?
 
 As adapted from R for Data Science by Hadley Wickham, the maker of the many popular R packages such as dplyr and ggplot2 packages we will be working with today.
 
-insert image here
+![](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Img/2018-April_event-presentation.jpg)
 
 For the purpose of todays workshop we will be working with a "clean" dataset on crimes in Vancouver. This is an open source dataset that can be obtained from:
 
