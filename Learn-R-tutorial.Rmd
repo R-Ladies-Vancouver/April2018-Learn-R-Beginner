@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 
+[remember to acknowledge sources, e.g. ResBaz, Software Carpentry]
+
 This is a hands-on 3 hour tutorial for participants with no prior knowledge of programming skills. It is intended to provide an introduction into the basics of working with R...the tutorial comprises of 6 topics, after each topic there is challenge.
 
 **Required**
@@ -85,21 +87,22 @@ This is what you should see when you launch RStudio:
 
 ---
 
-So, where is my R work (scripts, plots) going to exist? To find out type in the console `getwd()` command. This will promt R to print out a path to a location on your computer where any scripts, plots, data you generate will be saved.
+[Maybe this is not suitable for a beginner workshop?]
+
+Before we begin producing R code, we need to familiarize ourselves with where R work is going to be located on our computer.To find out type in the console `getwd()` command. This will promt R to print out a path to a location on your computer where any scripts, plots, data you generate will be saved.
 
 ```{r }
-
 getwd()
 
 ```
 
 
-R projects allows you to maintain everything related to your analysis in a single location. To create a new project in RStudio:
+It is a good practice to keep all of your data analysis for a particular project in a single location. RStudio comes with a build in tool called R projects. To create a new project in RStudio:
 
 1. Click the “File” menu button, then “New Project”.
 2. Click “New Directory”.
 3. Click “Empty Project”.
-4. Type in the name of the directory to store your project, e.g. “my_project”.
+4. Type in the name of the directory to store your project
 5. Click the “Create Project” button.
 
 
@@ -108,23 +111,35 @@ A recommendation on how to organize your R project from [Good Enough Practices f
 1. Put each project in its own directory, which is named after the project.
 2. Put text documents associated with the project in the doc directory.
 3. Put raw data and metadata in the data directory, and files generated during cleanup and analysis in a results directory.
-
-4 Put source for the project’s scripts and programs in the src directory, and programs brought in from elsewhere or compiled locally in the bin directory.
-5.Name all files to reflect their content or function.
+4. Put source for the project’s scripts and programs in the src directory, and programs brought in from elsewhere or compiled locally in the bin directory.
+5. Name all files to reflect their content or function.
 
 
 > Challenge
 
-1. Create an Rproject (File>New Project>...) called “R-beginner-workshop”
+1. Create an Rproject called “R-beginner-workshop". Click **File**>**New Project**>**New directory**>**Empty project** 
 2. Create a folder called Data
 3. Put the Crime.csv into folder Data
-[4. Create a script called “R-beginner-scripts” - introduce script!]
-[5. Edit the Readme file, e.g. "Scripts and data from R beginner workshop" [maybe unnecessary?]]
 
 
 ## Basics of R coding
 
 ---
+
+You can clear your console with a command `ctr + L`
+
+We can use R to do simple calculations,type the following in your console
+
+```{r }
+
+5+5
+
+```
+
+> Challenge
+
+[4. Create a script called “R-beginner-scripts”.Click on **File**>**New File**>**R script**]
+[5. Edit the Readme file, e.g. "Scripts and data from R beginner workshop" [maybe unnecessary?]]
 
 ## Loading and inspecting the Crime.csv dataset
 
