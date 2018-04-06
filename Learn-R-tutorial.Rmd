@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [remember to acknowledge sources, e.g. ResBaz, Software Carpentry]
 
-This is a hands-on 3 hour tutorial for participants with no prior knowledge of programming skills. It is intended to provide an introduction into the basics of working with R...the tutorial comprises of 6 topics, after each topic there is challenge.
+This is a hands-on 3 hour tutorial for participants with no prior knowledge of programming skills. 
 
 **Required**
 
@@ -27,7 +27,7 @@ This is a hands-on 3 hour tutorial for participants with no prior knowledge of p
 
 * [Google slides](https://docs.google.com/presentation/d/1ZhVXBN7cJfRrQuR2BAmUNfxt9-wMDb1_y6bt5NoWjag/edit#slide=id.g36b4849f4f_0_11)
 
-* The [Crimes in Vancouver dataset]() we use to learn dplyr and ggplot2 package
+* The open-source dataset with passanger onboard a Titanic from [Kaggle website](https://www.kaggle.com/c/titanic). Download the csv file with the dataset [here](https://drive.google.com/open?id=1iK6tiBsb4cabyi7mP5FLCH6LWYs4hOSI). We will use this learn dplyr and ggplot2 package
 
 **Topics covered**
 
@@ -116,8 +116,9 @@ A recommendation on how to organize your R project from [Good Enough Practices f
 > Challenge
 
 1. Create an Rproject called “R-beginner-workshop". Click **File**>**New Project**>**New directory**>**Empty project** 
-2. Create a folder called Data
-3. Put the Crime.csv into folder Data
+2. Create a folder called "data"
+3. Put the titanic.csv into folder data
+4. Create a folder called "scr"
 
 ---
 
@@ -147,6 +148,7 @@ For instance, type the following in your console:
 The answer to this is printed below the command, preceded by [1]. Right now, none of our work exists anywhere besides the console. 
 
 To create a script:
+
  1. Click File
  2. Click New File 
  3. Click R script
@@ -154,9 +156,10 @@ To create a script:
 
 > Challenge
 
-Create a script called “R-beginner-scripts” in your current project and put it in `scr` folder
+* Create a script called “R-beginner-scripts” in your current project and put it in `scr` folder
  
- 
+---
+
 We can annotate a script with comments using the `#`. If you precede anything with this sign, R will ignore it.  For instance
 
 ```{r }
@@ -166,7 +169,7 @@ We can annotate a script with comments using the `#`. If you precede anything wi
 
 ```
 
-To store results or data we need to create an object also known as a variable, using assignment operator `<-`
+To store results or data we need to assign it a name, using assignment operator `<-`
 
 ```{r }
 
@@ -178,7 +181,7 @@ height_cm <- 172
 
 Now, position your cursor at the line of the above command and press `CNTR + ENTER`. In the environment (top right) you should see a variable heigh_cm and it's value appear
 
-When, we are working with a dataset, we won't be able to see the values in the environment. We can check what is stored in the variable "height_cm" by simply typing it in the new line of our scrip and running `CNTR + ENTER`.
+It is not always possible to view what is stored in a variable by looking at your environment. To find out what value is stored in the variable "height_cm" simply type it in the new line of our scrip and run `CNTR + ENTER`.
 
 ```{r }
 
@@ -229,17 +232,27 @@ If we wanted to clear the environment of the variables we have 2 options:
 
 ## What are functions and packages?
 
-Functions:
+**Functions:**
 
 * fundamental building blocks of R
-* a list of base R functions [explore here]()
+* a list of base ("build-in", come with installation) R functions [explore here]()
+* to use a function, type it's name follwed by `(). In the brakets we tell R what is that we want to use a function on, i.e. your variable.
+
+`log()`
+
+You can also get information on how to use a function in R studio by typing
+
+`?log()`
+
+This will promt a Help page in the bottom right pane to appear with description of a function, what arguments a given function uses and some examples of how to apply it.
 
 ```{r }
 
+# find out log of height_cm
 log(height_cm)
 
+# find out exp of height_cm
 exp(height_cm)
-
 
 ```
 
@@ -258,7 +271,8 @@ length(heights_cm)
 
 ```
 
-Packages:
+
+**Packages**:
 
 * Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and (often) sample data. (From: http://r-pkgs.had.co.nz)
 
@@ -287,20 +301,37 @@ library("dplyr")
 ```
 
 
-## Loading and inspecting the Crime.csv dataset
+## Loading and inspecting the titanic.csv dataset
 
 ---
+
+Explain what a DATAFRAME is here
+
 
 ```{r}
 
 library("tidyverse")
 
-crime <- read_csv("Data/crime.csv")
-
-str
+titanic <- read.csv("Data/titanic.csv")
 
 ```
 
+
+Before we dive into extracting information from this dataset, it is important to know what variables we are working with. To do this, we will use a function called `head()` (part of base R) or `glimpse()`(part of DPLYR package), which extracts the top few rows of a dataset and print it in the console. This kind of data inspecting is handy when we are working with large datasets (otherwise R would try to print the entire data!).Note the output in your R console when you type `head(titanic)`
+
+```{r}
+
+head(titanic)
+glimpse(titanic)
+
+```
+
+It is also possible to view a dataframe in a spreadsheet-like view. Click on the `titanic` in your Environment to chek it out.
+
+**What is in the titanic dataset?**
+
+---------|----|----|----|----|
+Variable | Definition
 Variable	Definition	Key
 survival	Survival	0 = No, 1 = Yes
 pclass	Ticket class	1 = 1st, 2 = 2nd, 3 = 3rd
@@ -313,9 +344,34 @@ fare	Passenger fare
 cabin	Cabin number	
 embarked	Port of Embarkation	C = Cherbourg, Q = Queenstown, S = Southampton
 
-## Data wrangling with the DPLYR package
+
+Other usefull commands to explore a dataset:
+
+```{r}
+
+names(titanic) # lists the variable names
+dim(titanic) # dimentions of the dataset, it has 891 observations by 12 columns
+nrow(titanic) # number of observations
+summary(titanic) # gives me summary statistics for every column/variable
+
+```
 
 ---
 
+## Data wrangling with the DPLYR package
+
+The dplyr package is based on the concepts of functions as verbs that manipulate data frames:
+
+* `filter()`: pick rows matching criteria
+* `select()`: pick columns by name
+* `rename()`: rename specific columns
+* `arrange()`: reorder rows
+* mutate(): add new variables
+* transmute(): create new data frame with variables
+* sample_n() / sample_frac(): randomly sample rows
+* summarise(): reduce variables to values
+
+
+---
 
 ## Data plotting with the GGPLOT2 package
