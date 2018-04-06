@@ -20,7 +20,7 @@ This is a hands-on 3 hour tutorial for participants with no prior knowledge of p
 **Required**
 
 * a laptop
-* R and R studio installed. [Click here]() for instructions.
+* R and R studio installed. [Click here]() for instructions. [find instructions!]
 * we will also need be installing the "dplyr" and "ggplot2" packages during the tutorial
 
 **Other resources**
@@ -260,11 +260,11 @@ length(heights_cm)
 
 Packages:
 
--> Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and (often) sample data. (From: http://r-pkgs.had.co.nz)
+* Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and (often) sample data. (From: http://r-pkgs.had.co.nz)
 
--> Packages need to be **installed** once only, therefore we don't put these commands into the script. To install a package we use a command `install.packages("package-name")`. Today, we will be working with two packages called the `dplyr` for data wrangling and `ggplot2`for data visualization
+* Packages need to be **installed** once only, therefore we don't put these commands into the script. To install a package we use a command `install.packages("package-name")`. Today, we will be working with two packages called the `dplyr` for data wrangling and `ggplot2`for data visualization
 
--> Packages need to be **loaded** everytime we start a new R session. Typically this command goes on top of a script. To do so we use `library("package-name")` command
+* Packages need to be **loaded** everytime we start a new R session. Typically this command goes on top of a script. To do so we use `library("package-name")` command
 
 
 > Challenge
@@ -278,10 +278,40 @@ Type the following into console.
 # install.packages("dplyr")
 ```
 
+Now load these packages.
+
+```{r}
+
+library("ggplot2")
+library("dplyr")
+```
+
 
 ## Loading and inspecting the Crime.csv dataset
 
 ---
+
+```{r}
+
+library("tidyverse")
+
+crime <- read_csv("Data/crime.csv")
+
+str
+
+```
+
+Variable	Definition	Key
+survival	Survival	0 = No, 1 = Yes
+pclass	Ticket class	1 = 1st, 2 = 2nd, 3 = 3rd
+sex	Sex	
+Age	Age in years	
+sibsp	# of siblings / spouses aboard the Titanic	
+parch	# of parents / children aboard the Titanic	
+ticket	Ticket number	
+fare	Passenger fare	
+cabin	Cabin number	
+embarked	Port of Embarkation	C = Cherbourg, Q = Queenstown, S = Southampton
 
 ## Data wrangling with the DPLYR package
 
