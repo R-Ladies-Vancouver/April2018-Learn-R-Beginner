@@ -366,11 +366,41 @@ The dplyr package is based on the concepts of functions as verbs that manipulate
 * `select()`: pick columns by name
 * `rename()`: rename specific columns
 * `arrange()`: reorder rows
-* mutate(): add new variables
-* transmute(): create new data frame with variables
-* sample_n() / sample_frac(): randomly sample rows
-* summarise(): reduce variables to values
+* `mutate()`: add new variables
+* `transmute()`: create new data frame with variables
+* `sample_n()` / `sample_frac()`: randomly sample rows
+* `summarise()`: reduce variables to values
 
+Let's explore some of these functions!
+
+**Subsetting with filter()**
+
+```{r}
+
+females <- titanic%>%
+  filter(Sex == "female")
+
+titanic%>%
+  filter(Sex == "female", Age > 20)
+
+```
+
+**Picking out variables with select()**
+
+o pick a selection of variables from the dataset we use SELECT
+```{r}
+
+
+```
+
+ **Performing calculations with group_by() and summarize()**
+
+```{r}
+
+
+```
+
+**Creating new variables with mutate()**
 
 ---
 
