@@ -236,9 +236,9 @@ If we wanted to clear the environment of the variables we have 2 options:
 
 * fundamental building blocks of R
 * a list of base ("build-in", come with installation) R functions [explore here]()
-* to use a function, type it's name follwed by `(). In the brakets we tell R what is that we want to use a function on, i.e. your variable.
+* functions are used by first specifying first their name followed by `()`, into which we put arguments that a given function takes.
 
-`log()`
+`log()` is an example of a function to compute a logarithm.
 
 You can also get information on how to use a function in R studio by typing
 
@@ -324,7 +324,9 @@ titanic <- as_tibble(titanic)
 
 Before we dive into extracting information from this dataset, it is important to know what variables we are working with. 
 
-There are several functions that will provide information about the structure of the dataframe: `str()`, `head()` (part of base R) or `glimpse()`(part of DPLYR package), which extracts the top few rows of a dataset and print it in the console. This kind of data inspecting is handy when we are working with large datasets (otherwise R would try to print the entire data!). Note the differences in the output in your R console when you run these three functions.
+There are several functions that will provide information about the structure of the dataframe: `str()`, `head()` (part of base R) or `glimpse()`(part of DPLYR package).
+
+Note the differences in the output in your R console when you run these three functions.
 
 ```{r}
 
@@ -380,33 +382,9 @@ The dplyr package is based on the concepts of functions as verbs that manipulate
 
 Let's explore some of these functions!
 
-**Subsetting with filter()**
+### Picking out variables with select()
 
-The function `filter` extracts data **row_wise**. 
-
-An example: Column (variable) **Sex** contains two categories: females and males. Let's extract all of the information (all variables) contained in the `titanic` dataset but only for females
-
-```{r}
-
-# extract all of the variables but only for females
-   titanic%>%
-     filter(Sex == "female")
-```
-
-We can also do multiple levels of filtering.
-
-```{r}
-
-# extract all of the variables but only or females aged 20 and up
-   titanic%>%
-    filter(Sex == "female", Age > 20)
-
-```
-
-
-**Picking out variables with select()**
-
-The `select` function allows to extracts specific variables from a dataset (dataframe). If we then store variables of interest we in an object, we can focus on working on a small subset of the data seperately.
+Use `select()` function to extracts specific variables from a dataframe. You can store variables of interest extracted with `select()` in an object should you want to have a small subset of the data to work on seperately.
 
 Here's an example. 
 
@@ -437,46 +415,98 @@ There are various ways to use `select()` function. For instance, we could exract
 
 ```
 
+> ### Challenge
+
+Create a subset of titanic dataframe called `passanger_info` containing `Name`,`Age`,`Sex`
+
+### Subsetting with filter()
+
+The function `filter()` extracts data **row_wise**. 
+
+An example: Column (variable) **Sex** contains two categories: females and males. Let's extract all of the information (all variables) contained in the `titanic` dataset but only for females
+
+```{r}
+
+# extract all of the variables but only for females
+   titanic%>%
+     filter(Sex == "female")
+```
+
+We can also do multiple levels of filtering.
+
+```{r}
+
+# extract all of the variables but only or females aged 20 and up
+   titanic%>%
+    filter(Sex == "female", Age > 20)
+
+```
+
+
  **Performing calculations with group_by() and summarize()**
+ 
+So far we learnt how to extract pieces of data from the `titanic` dataset, but we still have lots of rows of data. How do we summarize it so that we can find out something useful, say the average age of people who survived the tradegy? This is where two powerfull functions come in:  `group_by` and `summarize()`.
+
+To perform operations on the `titanic` dataset, we first need to specify what variable we want to summarize with the `group_by`function.
+
+In the example below we I specify that the operation will be grouped by Sex for the `titanic` data. Because we have 2 categories in `Sex`, the female and male, any calculations we perform after the `groub_by` will produce one value for females and one value for males.
+
+```{r}
+ 
+titanic%>%
+  group_by(Sex)
+
+```
+
+Not much will happen when running `group_by` by itself, although in the console above the dataframe that was prinited we can see a new line #Groups: Sex [2]. To perform an operation we need to use `group_by` in conjunction with `summarise()`
+
+With summarize we can use the functions we explored at the beginning of the workshop (`mean`,`sd`,`median`,`n()`) or we can perform calculations like we would do in a cell of an excell spreadhseet. 
+
+To calculate the mean age for females and males in the `titanic` dataset:
+
+1. Group your data by variable **Sex**
+2. Define what to average with the `mean()` function and put this inside the `summarize()`
+3. Note, there are some missing values (NA's) in the variable **Age**, we must tell R to ignore NA's in those calculations using `na.rm = "TRUE` (i.e. na remove = yes)
 
 ```{r}
  
 titanic%>%
   group_by(Sex)%>%
-  count()
-
-```
-
-How many survived per gender?
-
-
-```{r}
- 
-titanic%>%
-  group_by(Sex, Survived)%>%
-  count()
-
-```
-
-We use the `summarize()` in conjunction with `group_by`to perform calculations / summarize data based on the categories of interest within the dataset. This is where we can make a use of base R functions we explored at the beginning of the workshop.
-
-An example: What is the average age of people who survived?
-Steps: 
-
-1. Group your data by variable **Survived**
-2. Define what to average with the `mean()` function and put this inside the `summarize()`
-
-```{r}
- 
-titanic%>%
-  group_by(Survived)%>%
   summarize(mean(Age, na.rm = "TRUE"))
+```
+
+Now, let's find out the average age of females and males that survive (1) and died (0) by adding **Survived** into the `groub_by()`
+
+```{r}
+ 
+titanic%>%
+  group_by(Sex,Survived)%>%
+  summarize(mean_age = mean(Age, na.rm = "TRUE"))
 
 ```
 
-The average age of people who survived is 28.3
+Just like with `groub_by()` where we can have many variables, we can apply many operations in summarize.
+
+```{r}
+ 
+titanic%>%
+  group_by(Sex)%>%
+  summarize(mean_age = mean(Survived),
+            st_dev = sd(Survived),
+            number_survived = n())
+
+```
+
+> Challenge
+
+Calculate mean, stdev and number of observations for variables Sex in conjunction with Passanger class. Hint!: follow the example we just did.
+
 
 **Creating new variables with mutate()**
+
+
+
+
 
 
 > Challenge
