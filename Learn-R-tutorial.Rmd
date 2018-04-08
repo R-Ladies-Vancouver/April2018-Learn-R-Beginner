@@ -2,7 +2,7 @@
 title: "Learn-R-tutorial"
 author: "R-Ladies-Vancouver"
 date: "April 2, 2018"
-output: html_document
+output: output: rmarkdown::github_document
 ---
 
 ```{r setup, include=FALSE}
