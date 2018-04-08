@@ -490,10 +490,10 @@ Just like with `groub_by()` where we can have many variables, we can apply many 
 ```{r}
  
 titanic%>%
-  group_by(Sex)%>%
-  summarize(mean_age = mean(Survived),
-            st_dev = sd(Survived),
-            number_survived = n())
+  group_by(Sex,Survived)%>%
+  summarize(mean_age = mean(Age, na.rm = "TRUE"),
+            stdev = sd(Age, na.rm = "TRUE"),
+            num_of_obs = n())
 
 ```
 
@@ -517,3 +517,57 @@ Calculate mean, stdev and number of observations for variables Sex in conjunctio
 ---
 
 ## Data plotting with the GGPLOT2 package
+
+ggplot2 is built on the grammar of graphics, the idea that any plot can be expressed from the same set of components: a data set, a coordinate system, and a set of geoms--the visual representation of data points
+
+Scatter plot example
+```{r}
+ 
+titanic%>%
+  ggplot(aes( x = Age, y = Fare, color = Sex )) + geom_point()
+
+```
+
+Adding `dplyr` verbs - zooming on a data of interest.
+
+```{r}
+ 
+titanic%>%
+  filter(Fare < 200)%>%
+  ggplot(aes( x = Age, y = Fare, color = Sex )) + geom_point()
+
+```
+
+Creating bar plots : geom_bar()
+
+```{r}
+ 
+titanic%>%
+  ggplot(aes( x= Pclass, fill = Sex)) +
+  geom_bar(position = "dodge")
+
+```
+
+
+Visualizing data points with geom_jitter() 
+
+```{r}
+ 
+titanic%>%
+  ggplot(aes( x= Pclass, y= Age, color = Sex)) +
+  geom_jitter()
+
+```
+
+Creating multiple plots using facet_grid()
+
+```{r}
+ 
+titanic%>%
+  ggplot(aes( x= Pclass, y= Age, color = Sex)) +
+  geom_jitter()+
+  facet_grid(~Survived)
+
+```
+
+
