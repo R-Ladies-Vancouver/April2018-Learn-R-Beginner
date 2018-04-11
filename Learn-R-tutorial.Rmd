@@ -69,7 +69,6 @@ As adapted from R for Data Science by Hadley Wickham, the maker of the many popu
 
 ![](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Img/2018-April_event-presentation.jpg)
 
-For the purpose of todays workshop we will be working with a "clean" dataset on crimes in Vancouver. This is an open source dataset that can be obtained from:
 
 ---
 
@@ -89,7 +88,7 @@ This is what you should see when you launch RStudio:
 
 [Maybe this is not suitable for a beginner workshop?]
 
-Before we begin producing R code, we need to familiarize ourselves with where R work is going to be located on our computer.To find out type in the console `getwd()` command. This will promt R to print out a path to a location on your computer where any scripts, plots, data you generate will be saved.
+Before we begin producing R code, we need to familiarize ourselves with where work is going to be located on our computers.To find out type in the console `getwd()` command. This will promt R to print out a path to a location on your computer where any scripts, plots, data you generate will be saved.
 
 ```{r }
 getwd()
