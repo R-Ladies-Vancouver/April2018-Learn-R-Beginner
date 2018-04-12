@@ -1,4 +1,4 @@
-# Learn-R-tutorial
+# Learn R!Beginner's workshop 
 R-Ladies-Vancouver  
 April 2, 2018  
 
