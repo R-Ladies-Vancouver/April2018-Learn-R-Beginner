@@ -32,10 +32,10 @@ In this workshop we will be working withan open data set on the infamous Titanic
 5. Basics of data wrangling with the `dplyr` package  
 6. Basics of data plotting with the `ggplot2` package  
 
-Learning materials can be accessed
+Learning materials 
 
-*[Slides](https://docs.google.com/presentation/d/1ZhVXBN7cJfRrQuR2BAmUNfxt9-wMDb1_y6bt5NoWjag/edit?usp=sharing) 
-*[Notes](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Learn-R-tutorial.md)
+* [Slides](https://docs.google.com/presentation/d/1ZhVXBN7cJfRrQuR2BAmUNfxt9-wMDb1_y6bt5NoWjag/edit?usp=sharing)  
+* [Notes](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Learn-R-tutorial.md)
 
 ### Time & Location
 
