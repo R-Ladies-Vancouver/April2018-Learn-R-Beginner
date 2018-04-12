@@ -528,7 +528,7 @@ Calculate mean, stdev and number of observations for variables Sex in conjunctio
 
 ## Data plotting with the GGPLOT2 package
 
-Ggplot2 is built on the [Grammar of Graphics](http://www.springer.com/gb/book/9780387245447).
+Ggplot2 is built on the [Grammar of Graphics](http://www.springer.com/gb/book/9780387245447). It is a package created by [Hadley Wickham](http://hadley.nz/)
 
 The basic elements required to build a ggplot-plot are:
 
@@ -539,7 +539,9 @@ The basic elements required to build a ggplot-plot are:
 * facetting - if creating subplots plots
 * coordinate system
 
+There is a handy [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)) for using ggplot2.
 
+And a crazy amount of graphs and options you can customise - [check it out!](http://ggplot2.tidyverse.org/index.html)
 
 Scatter plot example
 ```{r}
