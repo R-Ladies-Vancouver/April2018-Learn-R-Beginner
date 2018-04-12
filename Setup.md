@@ -34,7 +34,7 @@ In this workshop we will be working withan open data set on the infamous Titanic
 
 Learning materials 
 
-* [Slides](https://docs.google.com/presentation/d/1ZhVXBN7cJfRrQuR2BAmUNfxt9-wMDb1_y6bt5NoWjag/edit?usp=sharing)  
+* [Slides](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Slides/2018-April_event-presentation.pdf)  
 * [Notes](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Learn-R-tutorial.md)
 
 ### Time & Location

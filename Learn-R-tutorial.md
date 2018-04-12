@@ -23,7 +23,7 @@ Learning materials used in this tutorial were adapted form:
 
 **Other resources**
 
-* [Google slides](https://docs.google.com/presentation/d/1ZhVXBN7cJfRrQuR2BAmUNfxt9-wMDb1_y6bt5NoWjag/edit#slide=id.g36b4849f4f_0_11)
+* [Slides](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Slides/2018-April_event-presentation.pdf)
 
 * The open-source dataset with passanger onboard a Titanic from [Kaggle website](https://www.kaggle.com/c/titanic). Download the csv file with the dataset [here](https://drive.google.com/open?id=1iK6tiBsb4cabyi7mP5FLCH6LWYs4hOSI). We will use this learn dplyr and ggplot2 package
 
