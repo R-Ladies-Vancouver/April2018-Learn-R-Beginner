@@ -1,6 +1,7 @@
-# Learn R!Beginner's workshop 
+# Learn-R-tutorial
 R-Ladies-Vancouver  
 April 2, 2018  
+
 
 
 ## Overview
@@ -90,7 +91,7 @@ getwd()
 ```
 
 ```
-## [1] "C:/Users/Ania/R_coding/RLadies-Van-Github/April2018-Learn-R-Beginner"
+## [1] "/Users/marionshadbolt/Desktop/RLadies/April2018-Learn-R-Beginner"
 ```
 
 
@@ -352,7 +353,7 @@ library("dplyr")
 ```
 
 ```
-## Warning: package 'dplyr' was built under R version 3.4.3
+## Warning: package 'dplyr' was built under R version 3.4.2
 ```
 
 ```
@@ -404,15 +405,17 @@ head(titanic)
 
 ```
 ## # A tibble: 6 x 12
-##   PassengerId Survived Pclass Name    Sex     Age SibSp Parch Ticket  Fare
-##         <int>    <int>  <int> <fct>   <fct> <dbl> <int> <int> <fct>  <dbl>
-## 1           1        0      3 Braund~ male    22.     1     0 A/5 2~  7.25
-## 2           2        1      1 Cuming~ fema~   38.     1     0 PC 17~ 71.3 
-## 3           3        1      3 Heikki~ fema~   26.     0     0 STON/~  7.92
-## 4           4        1      1 Futrel~ fema~   35.     1     0 113803 53.1 
-## 5           5        0      3 Allen,~ male    35.     0     0 373450  8.05
-## 6           6        0      3 Moran,~ male    NA      0     0 330877  8.46
-## # ... with 2 more variables: Cabin <fct>, Embarked <fct>
+##   PassengerId Survived Pclass
+##         <int>    <int>  <int>
+## 1           1        0      3
+## 2           2        1      1
+## 3           3        1      3
+## 4           4        1      1
+## 5           5        0      3
+## 6           6        0      3
+## # ... with 9 more variables: Name <fctr>, Sex <fctr>, Age <dbl>,
+## #   SibSp <int>, Parch <int>, Ticket <fctr>, Fare <dbl>, Cabin <fctr>,
+## #   Embarked <fctr>
 ```
 
 ```r
@@ -425,15 +428,15 @@ glimpse(titanic)
 ## $ PassengerId <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,...
 ## $ Survived    <int> 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0,...
 ## $ Pclass      <int> 3, 1, 3, 1, 3, 3, 1, 3, 3, 2, 3, 1, 3, 3, 3, 2, 3,...
-## $ Name        <fct> Braund, Mr. Owen Harris, Cumings, Mrs. John Bradle...
-## $ Sex         <fct> male, female, female, female, male, male, male, ma...
+## $ Name        <fctr> Braund, Mr. Owen Harris, Cumings, Mrs. John Bradl...
+## $ Sex         <fctr> male, female, female, female, male, male, male, m...
 ## $ Age         <dbl> 22, 38, 26, 35, 35, NA, 54, 2, 27, 14, 4, 58, 20, ...
 ## $ SibSp       <int> 1, 1, 0, 1, 0, 0, 0, 3, 0, 1, 1, 0, 0, 1, 0, 0, 4,...
 ## $ Parch       <int> 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 5, 0, 0, 1,...
-## $ Ticket      <fct> A/5 21171, PC 17599, STON/O2. 3101282, 113803, 373...
+## $ Ticket      <fctr> A/5 21171, PC 17599, STON/O2. 3101282, 113803, 37...
 ## $ Fare        <dbl> 7.2500, 71.2833, 7.9250, 53.1000, 8.0500, 8.4583, ...
-## $ Cabin       <fct> , C85, , C123, , , E46, , , , G6, C103, , , , , , ...
-## $ Embarked    <fct> S, C, S, S, S, Q, S, S, S, C, S, S, S, S, S, S, Q,...
+## $ Cabin       <fctr> , C85, , C123, , , E46, , , , G6, C103, , , , , ,...
+## $ Embarked    <fctr> S, C, S, S, S, Q, S, S, S, C, S, S, S, S, S, S, Q...
 ```
 
 ```r
@@ -577,18 +580,18 @@ Here's an example.
 
 ```
 ## # A tibble: 891 x 3
-##      Age Sex    Survived
-##    <dbl> <fct>     <int>
-##  1   22. male          0
-##  2   38. female        1
-##  3   26. female        1
-##  4   35. female        1
-##  5   35. male          0
-##  6   NA  male          0
-##  7   54. male          0
-##  8    2. male          0
-##  9   27. female        1
-## 10   14. female        1
+##      Age    Sex Survived
+##    <dbl> <fctr>    <int>
+##  1    22   male        0
+##  2    38 female        1
+##  3    26 female        1
+##  4    35 female        1
+##  5    35   male        0
+##  6    NA   male        0
+##  7    54   male        0
+##  8     2   male        0
+##  9    27 female        1
+## 10    14 female        1
 ## # ... with 881 more rows
 ```
 
@@ -612,16 +615,16 @@ There are various ways to use `select()` function. For instance, we could extrac
 ## # A tibble: 891 x 1
 ##      Age
 ##    <dbl>
-##  1   22.
-##  2   38.
-##  3   26.
-##  4   35.
-##  5   35.
-##  6   NA 
-##  7   54.
-##  8    2.
-##  9   27.
-## 10   14.
+##  1    22
+##  2    38
+##  3    26
+##  4    35
+##  5    35
+##  6    NA
+##  7    54
+##  8     2
+##  9    27
+## 10    14
 ## # ... with 881 more rows
 ```
 
@@ -661,26 +664,27 @@ An example: Column (variable) **Sex** contains two categories: females and males
 
 ```r
 # extract all of the variables but only for females
-   titanic%>%
+   titanic %>%
      filter(Sex == "female")
 ```
 
 ```
 ## # A tibble: 314 x 12
-##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare
-##          <int>    <int>  <int> <fct>  <fct> <dbl> <int> <int> <fct>  <dbl>
-##  1           2        1      1 Cumin~ fema~   38.     1     0 PC 17~ 71.3 
-##  2           3        1      3 Heikk~ fema~   26.     0     0 STON/~  7.92
-##  3           4        1      1 Futre~ fema~   35.     1     0 113803 53.1 
-##  4           9        1      3 Johns~ fema~   27.     0     2 347742 11.1 
-##  5          10        1      2 Nasse~ fema~   14.     1     0 237736 30.1 
-##  6          11        1      3 Sands~ fema~    4.     1     1 PP 95~ 16.7 
-##  7          12        1      1 Bonne~ fema~   58.     0     0 113783 26.6 
-##  8          15        0      3 Vestr~ fema~   14.     0     0 350406  7.85
-##  9          16        1      2 "Hewl~ fema~   55.     0     0 248706 16.0 
-## 10          19        0      3 Vande~ fema~   31.     1     0 345763 18.0 
-## # ... with 304 more rows, and 2 more variables: Cabin <fct>,
-## #   Embarked <fct>
+##    PassengerId Survived Pclass
+##          <int>    <int>  <int>
+##  1           2        1      1
+##  2           3        1      3
+##  3           4        1      1
+##  4           9        1      3
+##  5          10        1      2
+##  6          11        1      3
+##  7          12        1      1
+##  8          15        0      3
+##  9          16        1      2
+## 10          19        0      3
+## # ... with 304 more rows, and 9 more variables: Name <fctr>, Sex <fctr>,
+## #   Age <dbl>, SibSp <int>, Parch <int>, Ticket <fctr>, Fare <dbl>,
+## #   Cabin <fctr>, Embarked <fctr>
 ```
 
 We can also do multiple levels of filtering.
@@ -688,29 +692,30 @@ We can also do multiple levels of filtering.
 
 ```r
 # extract all of the variables but only or females aged 20 and up
-   titanic%>%
+   titanic %>%
     filter(Sex == "female", Age > 20)
 ```
 
 ```
 ## # A tibble: 184 x 12
-##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare
-##          <int>    <int>  <int> <fct>  <fct> <dbl> <int> <int> <fct>  <dbl>
-##  1           2        1      1 Cumin~ fema~   38.     1     0 PC 17~ 71.3 
-##  2           3        1      3 Heikk~ fema~   26.     0     0 STON/~  7.92
-##  3           4        1      1 Futre~ fema~   35.     1     0 113803 53.1 
-##  4           9        1      3 Johns~ fema~   27.     0     2 347742 11.1 
-##  5          12        1      1 Bonne~ fema~   58.     0     0 113783 26.6 
-##  6          16        1      2 "Hewl~ fema~   55.     0     0 248706 16.0 
-##  7          19        0      3 Vande~ fema~   31.     1     0 345763 18.0 
-##  8          26        1      3 Asplu~ fema~   38.     1     5 347077 31.4 
-##  9          41        0      3 Ahlin~ fema~   40.     1     0 7546    9.48
-## 10          42        0      2 Turpi~ fema~   27.     1     0 11668  21.0 
-## # ... with 174 more rows, and 2 more variables: Cabin <fct>,
-## #   Embarked <fct>
+##    PassengerId Survived Pclass
+##          <int>    <int>  <int>
+##  1           2        1      1
+##  2           3        1      3
+##  3           4        1      1
+##  4           9        1      3
+##  5          12        1      1
+##  6          16        1      2
+##  7          19        0      3
+##  8          26        1      3
+##  9          41        0      3
+## 10          42        0      2
+## # ... with 174 more rows, and 9 more variables: Name <fctr>, Sex <fctr>,
+## #   Age <dbl>, SibSp <int>, Parch <int>, Ticket <fctr>, Fare <dbl>,
+## #   Cabin <fctr>, Embarked <fctr>
 ```
 
-he trick with the `filter()` option is that we always want each statement to return a `True` or a `False`. 
+The trick with the `filter()` option is that we always want each statement to return a `True` or a `False`. 
 
  **Performing calculations with group_by() and summarize()**
  
@@ -723,27 +728,28 @@ In the example below we specify that the operation will be grouped by Sex for th
 
 
 ```r
-titanic%>%
+titanic %>%
   group_by(Sex)
 ```
 
 ```
 ## # A tibble: 891 x 12
 ## # Groups:   Sex [2]
-##    PassengerId Survived Pclass Name   Sex     Age SibSp Parch Ticket  Fare
-##          <int>    <int>  <int> <fct>  <fct> <dbl> <int> <int> <fct>  <dbl>
-##  1           1        0      3 Braun~ male    22.     1     0 A/5 2~  7.25
-##  2           2        1      1 Cumin~ fema~   38.     1     0 PC 17~ 71.3 
-##  3           3        1      3 Heikk~ fema~   26.     0     0 STON/~  7.92
-##  4           4        1      1 Futre~ fema~   35.     1     0 113803 53.1 
-##  5           5        0      3 Allen~ male    35.     0     0 373450  8.05
-##  6           6        0      3 Moran~ male    NA      0     0 330877  8.46
-##  7           7        0      1 McCar~ male    54.     0     0 17463  51.9 
-##  8           8        0      3 Palss~ male     2.     3     1 349909 21.1 
-##  9           9        1      3 Johns~ fema~   27.     0     2 347742 11.1 
-## 10          10        1      2 Nasse~ fema~   14.     1     0 237736 30.1 
-## # ... with 881 more rows, and 2 more variables: Cabin <fct>,
-## #   Embarked <fct>
+##    PassengerId Survived Pclass
+##          <int>    <int>  <int>
+##  1           1        0      3
+##  2           2        1      1
+##  3           3        1      3
+##  4           4        1      1
+##  5           5        0      3
+##  6           6        0      3
+##  7           7        0      1
+##  8           8        0      3
+##  9           9        1      3
+## 10          10        1      2
+## # ... with 881 more rows, and 9 more variables: Name <fctr>, Sex <fctr>,
+## #   Age <dbl>, SibSp <int>, Parch <int>, Ticket <fctr>, Fare <dbl>,
+## #   Cabin <fctr>, Embarked <fctr>
 ```
 
 Not much will happen when running `group_by` by itself, although in the console above the dataframe that was printed we can see a new line #Groups: Sex [2]. To perform an operation we need to use `group_by` in conjunction with `summarise()`
@@ -754,63 +760,63 @@ To calculate the mean age for females and males in the `titanic` dataset:
 
 1. Group your data by variable **Sex**
 2. Define what to average with the `mean()` function and put this inside the `summarize()`
-3. Note, there are some missing values (NA's) in the variable **Age**, we must tell R to ignore NA's in those calculations using `na.rm = "TRUE` (i.e. na remove = yes)
+3. Note, there are some missing values (NA's) in the variable **Age**, we must tell R to ignore NA's in those calculations using `na.rm = TRUE` (i.e. na remove = yes)
 
 
 ```r
-titanic%>%
-  group_by(Sex)%>%
-  summarize(mean(Age, na.rm = "TRUE"))
+titanic %>%
+  group_by(Sex) %>%
+  summarize(mean(Age, na.rm = TRUE))
 ```
 
 ```
 ## # A tibble: 2 x 2
-##   Sex    `mean(Age, na.rm = "TRUE")`
-##   <fct>                        <dbl>
-## 1 female                        27.9
-## 2 male                          30.7
+##      Sex `mean(Age, na.rm = TRUE)`
+##   <fctr>                     <dbl>
+## 1 female                  27.91571
+## 2   male                  30.72664
 ```
 
 Now, let's find out the average age of females and males that survive (1) and died (0) by adding **Survived** into the `groub_by()`
 
 
 ```r
-titanic%>%
-  group_by(Sex,Survived)%>%
-  summarize(mean_age = mean(Age, na.rm = "TRUE"))
+titanic %>%
+  group_by(Sex,Survived) %>%
+  summarize(mean_age = mean(Age, na.rm = TRUE))
 ```
 
 ```
 ## # A tibble: 4 x 3
 ## # Groups:   Sex [?]
-##   Sex    Survived mean_age
-##   <fct>     <int>    <dbl>
-## 1 female        0     25.0
-## 2 female        1     28.8
-## 3 male          0     31.6
-## 4 male          1     27.3
+##      Sex Survived mean_age
+##   <fctr>    <int>    <dbl>
+## 1 female        0 25.04688
+## 2 female        1 28.84772
+## 3   male        0 31.61806
+## 4   male        1 27.27602
 ```
 
 Just like with `groub_by()` where we can have many variables, we can apply many operations in summarize.
 
 
 ```r
-titanic%>%
-  group_by(Sex,Survived)%>%
-  summarize(mean_age = mean(Age, na.rm = "TRUE"),
-            stdev = sd(Age, na.rm = "TRUE"),
+titanic %>%
+  group_by(Sex, Survived) %>%
+  summarize(mean_age = mean(Age, na.rm = TRUE),
+            stdev = sd(Age, na.rm = TRUE),
             num_of_obs = n())
 ```
 
 ```
 ## # A tibble: 4 x 5
 ## # Groups:   Sex [?]
-##   Sex    Survived mean_age stdev num_of_obs
-##   <fct>     <int>    <dbl> <dbl>      <int>
-## 1 female        0     25.0  13.6         81
-## 2 female        1     28.8  14.2        233
-## 3 male          0     31.6  14.1        468
-## 4 male          1     27.3  16.5        109
+##      Sex Survived mean_age    stdev num_of_obs
+##   <fctr>    <int>    <dbl>    <dbl>      <int>
+## 1 female        0 25.04688 13.61859         81
+## 2 female        1 28.84772 14.17507        233
+## 3   male        0 31.61806 14.05602        468
+## 4   male        1 27.27602 16.50480        109
 ```
 
 > Challenge
@@ -849,11 +855,15 @@ There is a handy [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03
 
 And a crazy amount of graphs and options you can customise - [check it out!](http://ggplot2.tidyverse.org/index.html)
 
-Scatter plot example
+### Scatter plot example
+
+Below we make a simple scatterplot of Age versus Fare and colour the points by the passenger's sex.
+
 
 ```r
-titanic%>%
-  ggplot(aes( x = Age, y = Fare, color = Sex )) + geom_point()
+titanic %>%
+  ggplot(aes( x = Age, y = Fare, color = Sex )) + 
+  geom_point()
 ```
 
 ```
@@ -862,13 +872,16 @@ titanic%>%
 
 ![](Learn-R-tutorial_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
 
+### dplyr + ggplot
+
 Adding `dplyr` verbs - zooming on a data of interest.
 
 
 ```r
-titanic%>%
-  filter(Fare < 200)%>%
-  ggplot(aes( x = Age, y = Fare, color = Sex )) + geom_point()
+titanic %>%
+  filter(Fare < 200) %>%
+  ggplot(aes(x = Age, y = Fare, color = Sex)) + 
+  geom_point()
 ```
 
 ```
@@ -877,24 +890,27 @@ titanic%>%
 
 ![](Learn-R-tutorial_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
 
+### Bar plots
+
 Creating bar plots : geom_bar()
 
 
 ```r
-titanic%>%
-  ggplot(aes( x= Pclass, fill = Sex)) +
+titanic %>%
+  ggplot(aes(x = Pclass, fill = Sex)) +
   geom_bar(position = "dodge")
 ```
 
 ![](Learn-R-tutorial_files/figure-html/unnamed-chunk-25-1.png)<!-- -->
 
+### Avoiding overplotting
 
 Visualizing data points with geom_jitter() 
 
 
 ```r
-titanic%>%
-  ggplot(aes( x= Pclass, y= Age, color = Sex)) +
+titanic %>%
+  ggplot(aes(x = Pclass, y = Age, color = Sex)) +
   geom_jitter()
 ```
 
@@ -904,13 +920,17 @@ titanic%>%
 
 ![](Learn-R-tutorial_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
 
+You can also try `geom_hex()`, `geom_count()` or `geom_bin2d()`.
+
+### Facetting
+
 Creating multiple plots using facet_grid()
 
 
 ```r
 titanic%>%
-  ggplot(aes( x= Pclass, y= Age, color = Sex)) +
-  geom_jitter()+
+  ggplot(aes(x= Pclass, y = Age, color = Sex)) +
+  geom_jitter() +
   facet_grid(~Survived)
 ```
 
