@@ -36,7 +36,7 @@ This is a hands-on 3 hour tutorial for participants with no prior knowledge of p
 1. RStudio orientation & good practices for data analysis   
 2. Basics of coding in R  
 3. Working with functions and packages  
-4. Loading and inspecting a crime in Vancouver dataset / titanic 
+4. Loading and inspecting the titanic.csv dataset
 5. Basics of data wrangling with the `dplyr` package  
 6. Basics of data plotting with the `ggplot2` package  
 
