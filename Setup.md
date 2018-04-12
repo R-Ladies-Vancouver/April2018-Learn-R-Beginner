@@ -1,14 +1,11 @@
----
-title: "Learn R! workshop instructions"
-author: "R-Ladies Vancouver"
-date: "April 9, 2018"
-output:
-  html_document:
-    keep_md: true
----
+# Learn R!
+### Workshop setup instructions
+R-Ladies-Vancouver  
+April 2, 2018 
 
 
 ### Prior to the workshop
+
 ---
 
 **1. Install R and RStudio**
@@ -23,8 +20,10 @@ In this workshop we will be working withan open data set on the infamous Titanic
 * Follow this [link](https://drive.google.com/open?id=1iK6tiBsb4cabyi7mP5FLCH6LWYs4hOSI)
 * Download and save the csv file
 
----
+
 ### Workshop outline
+
+---
 
 1. RStudio orientation & good practices for data analysis   
 2. Basics of coding in R  
@@ -33,8 +32,10 @@ In this workshop we will be working withan open data set on the infamous Titanic
 5. Basics of data wrangling with the `dplyr` package  
 6. Basics of data plotting with the `ggplot2` package  
 
----
+
 ### Time & Location
+
+---
 
 Time: 1-4 pm
 
