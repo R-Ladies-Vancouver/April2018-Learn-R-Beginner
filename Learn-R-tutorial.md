@@ -1,12 +1,6 @@
----
-title: "Learn-R-tutorial"
-author: "R-Ladies-Vancouver"
-date: "April 2, 2018"
-output: 
-  html_document:
-    keep_md: true
----
-
+# Learn-R-tutorial
+R-Ladies-Vancouver  
+April 2, 2018  
 
 
 ## Overview
