@@ -15,15 +15,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 
-[remember to acknowledge sources, e.g. ResBaz, Software Carpentry]
+Notes from a hands-on 3 hour workshop for participants with no prior knowledge of programming skills. 
 
-This is a hands-on 3 hour tutorial for participants with no prior knowledge of programming skills. 
+Learning materials used in this tutorial were adapted form:
+
+* [Intro into R by Research Bazar](https://resbaz.github.io/RLadies-Intro-R-workshop/)
+* [Software Carpentry - "R for reproducible scientific analysis"](https://swcarpentry.github.io/r-novice-gapminder/)
+* [2-hour intro into R by Mine Cetinkaya-Rundel](https://github.com/mine-cetinkaya-rundel/rworkshop-mem)
 
 **Required**
 
 * a laptop
-* R and R studio installed. [Click here]() for instructions. [attach link to instructions!]
-* we will also need be installing the "dplyr" and "ggplot2" packages during the tutorial
+* R and R studio installed. [Click here](https://github.com/R-Ladies-Vancouver/April2018-Learn-R-Beginner/blob/master/Setup.md) for instructions. 
+* we will also need be installing the  `dplyr` and  `ggplot2`packages during the tutorial
 
 **Other resources**
 
