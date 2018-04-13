@@ -313,6 +313,11 @@ library("dplyr")
 
 ---
 
+To load a csv file into RStudio we will use function `read.csv()`and assign our dataset a name (create an object). As a result, what will be created in the R environment is known as a DATAFRAME (a type of data structure in R) which has:
+
+* variables of a data set as columns
+* observations as rows
+* and is rectangular
 
 ```{r}
 
@@ -531,22 +536,34 @@ Calculate the average Survived value for a group of 20 randomly selected females
 
 ## Data plotting with the GGPLOT2 package
 
-Ggplot2 is built on the [Grammar of Graphics](http://www.springer.com/gb/book/9780387245447). It is a package created by [Hadley Wickham](http://hadley.nz/)
+Ggplot2 is built on the [Grammar of Graphics](http://www.springer.com/gb/book/9780387245447). It is a package created by [Hadley Wickham](http://hadley.nz/).
 
-The basic elements required to build a ggplot-plot are:
 
-* dataset 
-* aesthetic (position, color, shape, size)
+
+The building blocks of a ggplot include:  
+
+* a dataset 
+* an aesthetic (position (x and y), color, shape, size, linetype, fill)
 * a set of geoms--they define how data will be plotted (e.g geom_point is for scatterplots, while geom_bar is for bar plots)
+* statistical transformation (optional)
 * scales
-* facetting - if creating subplots plots
-* coordinate system
+* a coordinate system
+* facetting (for creating subplots)
 
-There is a handy [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)) for using ggplot2.
+There is a handy [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) for using ggplot2.
 
 And a crazy amount of graphs and options you can customise - [check it out!](http://ggplot2.tidyverse.org/index.html)
 
-### Scatter plot example
+Examples of GEOMS:
+
+* `geom_point()` - will create a scatterplot
+* `geom_bar()` - will create a bar plot
+* `geom_boxplot()` - you get the idea...
+* `geom_line()`
+* `geom_errorbar()`
+* `geom_dotplot()`
+
+## Scatter plot example
 
 Below we make a simple scatterplot of Age versus Fare and colour the points by the passenger's sex.
 
@@ -558,9 +575,9 @@ titanic %>%
 
 ```
 
-### dplyr + ggplot
+## Dplyr + ggplot
 
-Adding `dplyr` verbs - zooming on a data of interest.
+We can mix in some `dplyr` verbs we learnt earlier to zoom in on a data of interest within our graph. 
 
 ```{r}
  
@@ -571,9 +588,9 @@ titanic %>%
 
 ```
 
-### Bar plots
+## Bar plots
 
-Creating bar plots : geom_bar()
+Creating bar plots : `geom_bar()`
 
 ```{r}
  
@@ -583,7 +600,7 @@ titanic %>%
 
 ```
 
-### Avoiding overplotting
+## Avoiding overplotting
 
 Visualizing data points with geom_jitter() 
 
@@ -597,7 +614,7 @@ titanic %>%
 
 You can also try `geom_hex()`, `geom_count()` or `geom_bin2d()`.
 
-### Facetting
+## Facetting
 
 Creating multiple plots using `facet_grid()`
 
@@ -610,4 +627,27 @@ titanic %>%
 
 ```
 
+---
+
+# Useful Resources: local and remote places to practice R
+
+Cheatsheets: R for data science:
+
+* [for various R tools - RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)  
+
+* [RStudio - IDE](https://github.com/rstudio/cheatsheets/blob/master/rstudio-ide.pdf)  
+
+* [data import](https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf)  
+
+* [dplyr](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)  
+
+* [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+
+R-Ladies resources: [global repository](https://github.com/rladies/resources)
+
+* Stay tunes for future beginner R meetups with R-Ladies Vancouver!
+
+* Ecoscope offers a variety of R worshops for all levels [Ecoscope](http://ecoscope.ubc.ca/events/) - next one is on reproducible research [check out tickets here](http://ecoscope.ubc.ca/events/)
+
+* Check out a series of workshops on [Intro into Data Science](https://www.meetup.com/Women-Who-Code-Vancouver/events/249035344/) by [Women Who Code Vancouver](https://www.meetup.com/Women-Who-Code-Vancouver/)
 
